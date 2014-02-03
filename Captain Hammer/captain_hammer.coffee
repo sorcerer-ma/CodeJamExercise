@@ -1,9 +1,12 @@
 # https://code.google.com/codejam/contest/2933486/dashboard#s=p1
 
 fs = require 'fs'
-readline = require 'readline'
 
-infile = 'B-small-practice.in'
+if process.argv.length < 3
+  throw new Error 'no input file'
+  return
+
+infile = process.argv[2]
 outfile = infile.replace '.in', '.out'
 
 data = fs.readFileSync(infile).toString().split('\n')
@@ -30,9 +33,12 @@ getDeg = (v, d) ->
   return (Math.asin(d / v / v * 9.8) * c).toFixed 7
 
 main = ->
+  start = new Date()
   for i in [0...totalCount]
-    caseDate = getCase()
-    ret = handleCase caseDate
+    caseData = getCase()
+    ret = handleCase caseData
     writeAnwser i + 1, ret
+  end = new Date()
+  console.log end - start + 'ms'
 
 main()

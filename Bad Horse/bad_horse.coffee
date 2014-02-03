@@ -2,7 +2,11 @@
 
 fs = require 'fs'
 
-infile = 'A-small-practice-2.in'
+if process.argv.length < 3
+  throw new Error 'no input file'
+  return
+
+infile = process.argv[2]
 outfile = infile.replace '.in', '.out'
 
 data = fs.readFileSync(infile).toString().split('\n')
@@ -47,18 +51,17 @@ handleCase = (caseData) ->
       if not oppositeColor
         list[opposite] = color
       else if oppositeColor != color
-        # console.log evil, ':', evilColor
-        # console.log 'conflict:', opposite, '-', oppositeColor, ':', color
-        # console.log list
         return 'No'
 
-  # console.log list
   return 'Yes'
 
 main = ->
+  start = new Date()
   for i in [0...totalCount]
-    caseDate = getCase()
-    ret = handleCase caseDate
+    caseData = getCase()
+    ret = handleCase caseData
     writeAnwser i + 1, ret
+  end = new Date()
+  console.log end - start + 'ms'
 
 main()
