@@ -7,4 +7,8 @@
 
 * [Store Credit](https://code.google.com/codejam/contest/351101/dashboard#s=p0)  
     ~~A-small-practice~~  
-    ~~A-large-practice~~ 
+    ~~A-large-practice~~  
+
+* [Reverse Words](https://code.google.com/codejam/contest/351101/dashboard#s=p1)  
+    ~~B-small-practice~~  
+    ~~B-large-practice~~  
